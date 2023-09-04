@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+import pip
+pip.main(["install", "chatexchange"])
+
 import getpass
 import logging
 import logging.handlers
