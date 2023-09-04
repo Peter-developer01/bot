@@ -1,6 +1,8 @@
 #!/usr/bin/env python
-import pip
-pip.main(["install", "chatexchange"])
+
+# Uncomment next line if you are forking.
+#import pip
+#pip.main(["install", "chatexchange"])
 
 import getpass
 import logging
