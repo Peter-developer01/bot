@@ -27,7 +27,7 @@ def main():
 	setup_logging()
 
 	host_id = 'stackexchange.com'
-	room_id = '1'
+	room_id = '146039'
 
 	client = chatexchange.client.Client(host_id)
 	client.login(email, password)
@@ -37,9 +37,6 @@ def main():
 	room.watch(on_message)
 
 	print("(You are now in room #%s on %s.)" % (room_id, host_id))
-
-	room.send_message("testing python?")
-	room.send_message("alive")
 
 	#while True:
 	#	message = input("<< ")
