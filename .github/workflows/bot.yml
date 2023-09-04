@@ -25,6 +25,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
+      - name: Python Dependency Installation
+        uses: py-actions/py-dependency-install@v4.0.0
+
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: python3 chatbot.py ${{ secrets.BOT_EMAIL }} ${{ secrets.BOT_PASSWORD }}
