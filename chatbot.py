@@ -64,7 +64,7 @@ def on_message(message, client):
 		array = message.content.split(" ")[1:]
 		if int(message.user.id) == 573201:
 			result = subprocess.check_output(array).decode()
-			return_result = f"""    @{message.user.name.replace(' ', '')}\n\n"""
+			return_result = f"""    @{message.user.name.replace(' ', '')}\n    \n"""
 			temp_result = []
 			for line in result.split("\n"):
 				temp_result.append("    " + line)
