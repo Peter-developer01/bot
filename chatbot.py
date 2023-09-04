@@ -73,6 +73,11 @@ def on_message(message, client):
 		else:
 			message.message.reply("You don't have the powers to run this. If you feel you should be able to, go ahead and ping @Petəíŕd.")
 
+	if "🐟" in message.content and "The Linux Wizard" in message.content and "quivers" in message.content and int(message.user.id) == 375672:
+		room.send_message("/fish")
+		room.send_message("Argh, I can auto-fish too!")
+		room.send_message("/fish")
+
 def setup_logging():
 	logging.basicConfig(level=logging.CRITICAL)
 	logger.setLevel(logging.CRITICAL)
