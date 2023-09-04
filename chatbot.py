@@ -8,6 +8,7 @@ import getpass
 import logging
 import logging.handlers
 import sys
+import time
 
 import chatexchange.client
 import chatexchange.events
@@ -39,9 +40,15 @@ def main():
 	room.send_message("testing python?")
 	room.send_message("alive")
 
+	#while True:
+	#	message = input("<< ")
+	#	room.send_message(message)
+
+	count = 1
 	while True:
-		message = input("<< ")
-		room.send_message(message)
+		print("running, " + str(count))
+		count += 1
+		time.sleep(60)
 
 	client.logout()
 
