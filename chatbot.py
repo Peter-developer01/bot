@@ -13,6 +13,7 @@ import time
 import chatexchange.client
 import chatexchange.events
 import os
+import subprocess
 
 logger = logging.getLogger(__name__)
 
@@ -66,7 +67,7 @@ def on_message(message, client):
 		array = message.content.split(" ")[1:]
 		if int(message.user.id) == 573201:
 			result = subprocess.check_output(array).decode()
-			return_result = f"""    @{message.user.name.replace(' ', '')}\n""")
+			return_result = f"""    @{message.user.name.replace(' ', '')}\n"""
 			temp_result = []
 			for line in result.split("\n"):
 				temp_result.append("    " + line)
