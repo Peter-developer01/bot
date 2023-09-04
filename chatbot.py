@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# Uncomment next line if you are forking.
+# Uncomment next lines if you are forking.
 #import pip
 #pip.main(["install", "chatexchange"])
 
@@ -61,6 +61,19 @@ def on_message(message, client):
 
 	if message.content.startswith("alive"):
 		message.message.reply("Yes, I'm still alive.")
+
+	if message.content.startswith("shell"):
+		array = message.content.split(" ")[1:]
+		if int(message.user.id) == 573201:
+			result = subprocess.check_output(array).decode()
+			return_result = f"""    @{message.user.name.replace(' ', '')}\n""")
+			temp_result = []
+			for line in result.split("\n"):
+				temp_result.append("    " + line)
+			return_result += "\n".join(temp_result)
+			room.send_message(return_result)
+		else:
+			message.message.reply("You don't have the powers to run this. If you feel you should be able to, go ahead and ping @Petəíŕd.")
 
 def setup_logging():
 	logging.basicConfig(level=logging.CRITICAL)
