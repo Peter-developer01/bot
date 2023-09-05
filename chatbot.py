@@ -37,6 +37,7 @@ def main():
 	room.watch(on_message)
 
 	print("(You are now in room #%s on %s.)" % (room_id, host_id))
+	room.send_message("Bot has started using Actions.")
 
 	#while True:
 	#	message = input("<< ")
@@ -97,3 +98,4 @@ def setup_logging():
 
 if __name__ == '__main__':
 	main()
+	room.send_message("Bot stopped.")
