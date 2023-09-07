@@ -20,8 +20,8 @@ logger = logging.getLogger(__name__)
 email = sys.argv[1]
 password = sys.argv[2]
 
-with open("result.txt", "w") as f:
-	f.write("Result is curently empty.")
+#with open("result.txt", "w") as f:
+#	f.write("Result is curently empty.")
 
 room_pet_den = None
 room_unfroze = None
@@ -90,7 +90,7 @@ def on_message(message, client):
 	if message.content.startswith("shell "):
 		try:
 			array = message.content.split(" ")[1:]
-			if int(message.user.id) in (573201, 578513):
+			if int(message.user.id) in [573201, 578513]:
 				result = subprocess.check_output(array).decode()
 				return_result = f"""    @{message.user.name.replace(' ', '')}\n    \n"""
 				temp_result = []
@@ -98,8 +98,8 @@ def on_message(message, client):
 					temp_result.append("    " + line)
 				return_result += "\n".join(temp_result)
 				print(return_result)
-				with open("result.txt", "w") as f:
-					f.write(return_result)
+				#with open("result.txt", "w") as f:
+				#	f.write(return_result)
 				message.room.send_message(return_result)
 			else:
 				message.message.reply("You don't have the powers to run this. If you feel you should be able to, go ahead and ping @Petəíŕd.")
