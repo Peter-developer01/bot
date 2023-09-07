@@ -20,6 +20,9 @@ logger = logging.getLogger(__name__)
 email = sys.argv[1]
 password = sys.argv[2]
 
+with open("result.txt", "w") as f:
+	f.write("Result is curently empty.")
+
 room_pet_den = None
 room_unfroze = None
 room_priv_fh = None
@@ -94,6 +97,9 @@ def on_message(message, client):
 				for line in result.split("\n"):
 					temp_result.append("    " + line)
 				return_result += "\n".join(temp_result)
+				print(return_result)
+				with open("result.txt", "w") as f:
+					f.write(return_result)
 				message.room.send_message(return_result)
 			else:
 				message.message.reply("You don't have the powers to run this. If you feel you should be able to, go ahead and ping @Petəíŕd.")
