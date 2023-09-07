@@ -58,7 +58,7 @@ def main():
 	for room in rooms:
 		room.join()
 		room.watch(on_message)
-		room.send_message("Bot has started using Actions.")
+		#room.send_message("Bot has started using Actions.")
 		#print("(You are now in room #%s on %s.)" % (room_id, host_id))
 
 
@@ -93,14 +93,14 @@ def on_message(message, client):
 			for line in result.split("\n"):
 				temp_result.append("    " + line)
 			return_result += "\n".join(temp_result)
-			room.send_message(return_result)
+			message.room.send_message(return_result)
 		else:
 			message.message.reply("You don't have the powers to run this. If you feel you should be able to, go ahead and ping @Petəíŕd.")
 
 	if "🐟" in message.content and "The Linux Wizard" in message.content and "quivers" in message.content and int(message.user.id) == 375672:
-		room.send_message("/fish")
-		room.send_message("Argh, I can auto-fish too!")
-		room.send_message("/fish")
+		message.room.send_message("/fish")
+		message.room.send_message("Argh, I can auto-fish too!")
+		message.room.send_message("/fish")
 
 def setup_logging():
 	logging.basicConfig(level=logging.CRITICAL)
@@ -121,4 +121,4 @@ def setup_logging():
 
 if __name__ == '__main__':
 	main()
-	room.send_message("Bot stopped.")
+	#room.send_message("Bot stopped.")
