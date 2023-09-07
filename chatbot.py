@@ -84,18 +84,21 @@ def on_message(message, client):
 	if message.content.startswith("alive"):
 		message.message.reply("Yes, I'm still alive.")
 
-	if message.content.startswith("shell"):
-		array = message.content.split(" ")[1:]
-		if int(message.user.id) == 573201:
-			result = subprocess.check_output(array).decode()
-			return_result = f"""    @{message.user.name.replace(' ', '')}\n    \n"""
-			temp_result = []
-			for line in result.split("\n"):
-				temp_result.append("    " + line)
-			return_result += "\n".join(temp_result)
-			message.room.send_message(return_result)
-		else:
-			message.message.reply("You don't have the powers to run this. If you feel you should be able to, go ahead and ping @Petəíŕd.")
+	if message.content.startswith("shell "):
+		try:
+			array = message.content.split(" ")[1:]
+			if int(message.user.id) == 573201:
+				result = subprocess.check_output(array).decode()
+				return_result = f"""    @{message.user.name.replace(' ', '')}\n    \n"""
+				temp_result = []
+				for line in result.split("\n"):
+					temp_result.append("    " + line)
+				return_result += "\n".join(temp_result)
+				message.room.send_message(return_result)
+			else:
+				message.message.reply("You don't have the powers to run this. If you feel you should be able to, go ahead and ping @Petəíŕd.")
+		except:
+			message.message.reply("Something went wrong. Ping Petəíŕd if you think they should look at this.")
 
 	if "🐟" in message.content and "The Linux Wizard" in message.content and "quivers" in message.content and int(message.user.id) == 375672:
 		message.room.send_message("/fish")
