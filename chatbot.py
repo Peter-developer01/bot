@@ -59,7 +59,7 @@ def main():
 		room.join()
 		room.watch(on_message)
 		room.send_message("Bot has started using Actions.")
-		print("(You are now in room #%s on %s.)" % (room_id, host_id))
+		#print("(You are now in room #%s on %s.)" % (room_id, host_id))
 
 
 	#while True:
