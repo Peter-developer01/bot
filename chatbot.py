@@ -20,24 +20,47 @@ logger = logging.getLogger(__name__)
 email = sys.argv[1]
 password = sys.argv[2]
 
-room = None
+room_pet_den = None
+room_unfroze = None
+room_priv_fh = None
+room_the_den = None
+room_sandbox = None
 
 def main():
-	global wall, room
+	global wall, room_pet_den, room_unfroze, room_priv_fh, room_the_den, room_sandbox
 	setup_logging()
 
 	host_id = 'stackexchange.com'
-	room_id = '146039'
+	pet_den = '146039'
+	unfroze = '146791'
+	priv_fh = '148132'
+	the_den = '148152'
+	sandbox = '1'
+	
 
 	client = chatexchange.client.Client(host_id)
 	client.login(email, password)
 
-	room = client.get_room(room_id)
-	room.join()
-	room.watch(on_message)
+	room_pet_den = client.get_room(pet_den)
+	room_unfroze = client.get_room(unfroze)
+	room_priv_fh = client.get_room(priv_fh)
+	room_the_den = client.get_room(the_den)
+	room_sandbox = client.get_room(sandbox)
+	
+	rooms = [
+		room_pet_den,
+		room_unfroze,
+		room_priv_fh,
+		room_the_den,
+		room_sandbox,
+	]
 
-	print("(You are now in room #%s on %s.)" % (room_id, host_id))
-	room.send_message("Bot has started using Actions.")
+	for room in rooms:
+		room.join()
+		room.watch(on_message)
+		room.send_message("Bot has started using Actions.")
+		print("(You are now in room #%s on %s.)" % (room_id, host_id))
+
 
 	#while True:
 	#	message = input("<< ")
