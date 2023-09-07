@@ -97,7 +97,7 @@ def on_message(message, client):
 				for line in result.split("\n"):
 					temp_result.append("    " + line)
 				return_result += "\n".join(temp_result)
-				print(return_result)
+				#print(return_result)
 				#with open("result.txt", "w") as f:
 				#	f.write(return_result)
 				message.room.send_message(return_result)
