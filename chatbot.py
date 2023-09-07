@@ -90,7 +90,7 @@ def on_message(message, client):
 	if message.content.startswith("shell "):
 		try:
 			array = message.content.split(" ")[1:]
-			if int(message.user.id) in [573201, 578513]:
+			if int(message.user.id) in [573201, 578513, 533049]:
 				result = subprocess.check_output(array).decode()
 				return_result = f"""    @{message.user.name.replace(' ', '')}\n    \n"""
 				temp_result = []
