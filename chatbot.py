@@ -24,10 +24,6 @@ password = sys.argv[2]
 #	f.write("Result is curently empty.")
 
 room_pet_den = None
-room_unfroze = None
-room_priv_fh = None
-room_the_den = None
-room_sandbox = None
 
 def main():
 	global wall, room_pet_den, room_unfroze, room_priv_fh, room_the_den, room_sandbox
@@ -35,27 +31,15 @@ def main():
 
 	host_id = 'stackexchange.com'
 	pet_den = '146039'
-	unfroze = '146791'
 	priv_fh = '148132'
-	the_den = '148152'
-	sandbox = '1'
-	
 
 	client = chatexchange.client.Client(host_id)
 	client.login(email, password)
 
 	room_pet_den = client.get_room(pet_den)
-	room_unfroze = client.get_room(unfroze)
-	room_priv_fh = client.get_room(priv_fh)
-	room_the_den = client.get_room(the_den)
-	room_sandbox = client.get_room(sandbox)
 	
 	rooms = [
 		room_pet_den,
-		room_unfroze,
-		room_priv_fh,
-		room_the_den,
-		room_sandbox,
 	]
 
 	for room in rooms:
@@ -90,7 +74,7 @@ def on_message(message, client):
 	if message.content.startswith("shell "):
 		try:
 			array = message.content.split(" ")[1:]
-			if int(message.user.id) in [573201, 578513, 533049, 354515]:
+			if int(message.user.id) in [595292]:
 				result = subprocess.check_output(array).decode()
 				return_result = f"""    @{message.user.name.replace(' ', '')}\n    \n"""
 				temp_result = []
@@ -102,13 +86,13 @@ def on_message(message, client):
 				#	f.write(return_result)
 				message.room.send_message(return_result)
 			else:
-				message.message.reply("You don't have the powers to run this. If you feel you should be able to, go ahead and ping @Petəíŕd.")
+				message.message.reply("You don't have the powers to execute shell commands ;). If you feel like you should be able to, go ahead and ping @Petəíŕd.")
 		except:
 			message.message.reply("Something went wrong. Ping Petəíŕd if you think they should look at this.")
 
 	if "🐟" in message.content and "The Linux Wizard" in message.content and "quivers" in message.content and int(message.user.id) == 375672:
 		message.room.send_message("/fish")
-		message.room.send_message("Argh, I can auto-fish too!")
+		message.room.send_message("Why no `/fish launch` command? Oh well. Let's just wait.")
 		message.room.send_message("/fish")
 
 def setup_logging():
