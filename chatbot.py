@@ -87,7 +87,7 @@ def on_message(message, client):
 				message.room.send_message(return_result)
 			else:
 				message.message.reply("You don't have the powers to execute shell commands ;). If you feel like you should be able to, go ahead and ping @Petəíŕd.")
-		except Error as e:
+		except Exception as e:
 			message.message.reply("Something went wrong. Ping Petəíŕd if you think they should look at this.\n\n" + str(e))
 
 	if "🐟" in message.content and "The Linux Wizard" in message.content and "quivers" in message.content and int(message.user.id) == 375672:
