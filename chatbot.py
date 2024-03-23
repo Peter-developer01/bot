@@ -85,7 +85,7 @@ def on_message(message, client):
 				print(return_result)
 				with open("result.txt", "w") as f:
 					f.write(return_result)
-				message.room.send_message(return_result)
+				message.room.send_message(result)
 			else:
 				message.message.reply("You don't have the powers to execute shell commands ;). If you feel like you should be able to, go ahead and ping @Petəíŕd.")
 		except Exception as e:
