@@ -83,8 +83,8 @@ def on_message(message, client):
 					temp_result.append("    " + line)
 				return_result += "\n".join(temp_result)
 				print(return_result)
-				with open("result.txt", "w") as f:
-					f.write(return_result)
+				#with open("result.txt", "w") as f:
+				#	f.write(return_result)
 				message.room.send_message(return_result)
 			else:
 				message.message.reply("You don't have the powers to execute shell commands ;). If you feel like you should be able to, go ahead and ping @Petəíŕd.")
