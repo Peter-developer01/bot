@@ -78,13 +78,13 @@ def on_message(message, client):
 				result = subprocess.check_output(array).decode()
 				return_result = f"""    @{message.user.name.replace(' ', '')}\n    \n"""
 				temp_result = []
-				print(temp_result)
+				#print(temp_result)
 				for line in result.split("\n"):
 					temp_result.append("    " + line)
 				return_result += "\n".join(temp_result)
-				print(return_result)
-				with open("result.txt", "w") as f:
-					f.write(return_result)
+				#print(return_result)
+				#with open("result.txt", "w") as f:
+				#	f.write(return_result)
 				message.room.send_message(result)
 			else:
 				message.message.reply("You don't have the powers to execute shell commands ;). If you feel like you should be able to, go ahead and ping @Petəíŕd.")
