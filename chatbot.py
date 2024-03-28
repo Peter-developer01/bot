@@ -23,6 +23,15 @@ password = sys.argv[2]
 #with open("result.txt", "w") as f:
 #	f.write("Result is curently empty.")
 
+letters = "qwertyzxcv"
+numbers = "0123456789"
+
+def numenc(ns):
+        return ''.join([letters[int(n)] if n in numbers else n for n in ns])
+
+def numdec(ls):
+        return ''.join([str(letters.index(l.lower())) if l.lower() in letters else l for l in ls])
+
 room_pet_den = None
 
 def main():
@@ -90,6 +99,18 @@ def on_message(message, client):
 				message.message.reply("You don't have the powers to execute shell commands ;). If you feel like you should be able to, go ahead and ping @Petəíŕd.")
 		except Exception as e:
 			message.message.reply("Something went wrong. Ping Petəíŕd if you think they should look at this.\n\n" + str(e))
+		
+	if message.content.startswith("num"):
+		try:
+			cmd = message.content.split(" ")[0][3:]
+			msg = message.content
+			res = "No input provided."
+			content = msg[len(msg.split(" ")[0]) + 1:]
+			if cmd == "enc": res = numenc(content)
+			elif cmd == "dec": res = numdec(content)
+			message.message.reply(res)
+		except Exception as e:
+			message.message.reply("Something went wrong while running the crypto computer:\n\n" + str(e))
 
 	if "🐟" in message.content and "The Linux Wizard" in message.content and "quivers" in message.content and int(message.user.id) == 375672:
 		message.room.send_message("/fish again")
