@@ -106,6 +106,7 @@ def on_message(message, client):
 			msg = message.content
 			res = "No input provided."
 			content = msg[len(msg.split(" ")[0]) + 1:]
+			if content = "": message.message.reply(res)
 			if cmd == "enc": res = numenc(content)
 			elif cmd == "dec": res = numdec(content)
 			message.message.reply(res)
