@@ -105,11 +105,14 @@ def on_message(message, client):
 			cmd = message.content.split(" ")[0][3:]
 			msg = message.content
 			res = "No input provided."
+			answered_already = False
 			content = msg[len(msg.split(" ")[0]) + 1:]
-			if content == "": message.message.reply(res)
+			if content == "":
+				answered_already = True
+				message.message.reply(res)
 			if cmd == "enc": res = numenc(content)
 			elif cmd == "dec": res = numdec(content)
-			message.message.reply(res)
+			if not answered_already: message.message.reply(res)
 		except Exception as e:
 			message.message.reply("Something went wrong while running the crypto computer:\n\n" + str(e))
 
