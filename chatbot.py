@@ -92,9 +92,7 @@ def on_message(message, client):
 			message.message.reply("Something went wrong. Ping Petəíŕd if you think they should look at this.\n\n" + str(e))
 
 	if "🐟" in message.content and "The Linux Wizard" in message.content and "quivers" in message.content and int(message.user.id) == 375672:
-		message.room.send_message("/fish")
-		message.room.send_message("Why no `/fish launch` command? Oh well. Let's just wait.")
-		message.room.send_message("/fish")
+		message.room.send_message("/fish again")
 
 def setup_logging():
 	logging.basicConfig(level=logging.CRITICAL)
