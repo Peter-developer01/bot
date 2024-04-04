@@ -10,8 +10,8 @@ on:
       - "main"
     paths:
       - "chatbot.py"
-  schedule:
-    - cron: "1 */4 * * *"
+  #schedule:
+  #  - cron: "1 */4 * * *"
 
 concurrency:
   group: ${{ github.ref }}
