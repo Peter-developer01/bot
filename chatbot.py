@@ -84,7 +84,7 @@ def on_message(message, client):
 		try:
 			array = message.content.split(" ")[1:]
 			if int(message.user.id) in [595292]:
-				result = subprocess.check_output(array).decode()
+				result = subprocess.getoutput(array)
 				return_result = f"""    @{message.user.name.replace(' ', '')}\n    \n"""
 				temp_result = []
 				#print(temp_result)
