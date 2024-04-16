@@ -34,4 +34,4 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: python3 chatbot.py ${{ secrets.BOT_EMAIL }} ${{ secrets.BOT_PASSWORD }}
+        run: python3 chatbot.py ${{ secrets.BOT_EMAIL }} "${{ secrets.BOT_PASSWORD }}"
