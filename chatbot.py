@@ -116,9 +116,9 @@ def on_message(message, client):
 		except Exception as e:
 			message.message.reply("Something went wrong while running the crypto computer:\n\n" + str(e))
 
-	if "🐟" in message.content and "d The Wizard" in message.content and "quivers" in message.content and int(message.user.id) == 375672:
+	if "🐟" in message.content and "d the Wizard" in message.content and "quivers" in message.content and int(message.user.id) == 375672:
 		message.room.send_message("/fish again")
-	if "📧" in message.content and "d The Wizard" in message.content and "inbox pings" in message.content and int(message.user.id) == 375672:
+	if "📧" in message.content and "d the Wizard" in message.content and "inbox pings" in message.content and int(message.user.id) == 375672:
 		message.room.send_message("/phish again")
 
 def setup_logging():
