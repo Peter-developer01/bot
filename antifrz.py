@@ -46,8 +46,8 @@ def main():
 
 	room_priv_fh = client.get_room(priv_fh)
 
-  room.join()
-  room.send_message("/fish again")
+	room.join()
+	room.send_message("/fish again")
 	client.logout()
 
 def setup_logging():
