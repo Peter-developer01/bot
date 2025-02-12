@@ -84,7 +84,11 @@ def on_message(message, client):
 
 	if message.content.startswith("shell "):
 		try:
-			array = message.content.split(" ")[1:]
+			content = message.content
+			if "antifrz.py" in content:
+				content = content.replace("$assword", password).replace("$ail", email)
+			array = content.split(" ")[1:]
+			#allowing literally anyone else would be a total no-no
 			if int(message.user.id) in [595292]:
 				result = subprocess.getoutput(array)
 				return_result = f"""    @{message.user.name.replace(' ', '')}\n    \n"""
