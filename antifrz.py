@@ -44,7 +44,7 @@ def main():
 	client = chatexchange.client.Client(host_id)
 	client.login(email, password)
 
-	room_priv_fh = client.get_room(priv_fh)
+	room = client.get_room(priv_fh)
 
 	room.join()
 	room.send_message("/fish again")
