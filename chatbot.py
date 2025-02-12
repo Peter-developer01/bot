@@ -85,7 +85,7 @@ def on_message(message, client):
 
 	if message.content.startswith("shell "):
 		try:
-			content = message.content
+			content = " ".join(message.content.split(" ")[1:])
 			if "antifrz.py" in content:
 				content = content.replace("$assword", password).replace("$ail", email)
 			#array = content.split(" ")[1:]
