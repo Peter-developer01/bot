@@ -39,7 +39,7 @@ def main():
 	setup_logging()
 
 	host_id = 'stackexchange.com'
-	pet_den = '152652' #'152450' #'146039'
+	pet_den = '146039'
 	priv_fh = '157651'
 
 	client = chatexchange.client.Client(host_id)
