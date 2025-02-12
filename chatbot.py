@@ -14,6 +14,7 @@ import chatexchange.client
 import chatexchange.events
 import os
 import subprocess
+import html
 
 logger = logging.getLogger(__name__)
 
@@ -21,7 +22,7 @@ email = sys.argv[1]
 password = sys.argv[2]
 
 #with open("result.txt", "w") as f:
-#	f.write("Result is curently empty.")
+#	f.write("Result is currently empty.")
 
 letters = "qwertyzxcv"
 numbers = "0123456789"
@@ -90,7 +91,7 @@ def on_message(message, client):
 			#array = content.split(" ")[1:]
 			# allowing literally anyone else would be a total no-no
 			if int(message.user.id) in [595292]:
-				result = subprocess.run(content, shell=True, text=True)
+				result = str(subprocess.check_output(html.unescape(content), shell=True, text=True))
 				return_result = f"""    @{message.user.name.replace(' ', '')}\n    \n"""
 				temp_result = []
 				#print(temp_result)
