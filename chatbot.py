@@ -40,15 +40,17 @@ def main():
 
 	host_id = 'stackexchange.com'
 	pet_den = '152652' #'152450' #'146039'
-	priv_fh = '148132'
+	priv_fh = '157651'
 
 	client = chatexchange.client.Client(host_id)
 	client.login(email, password)
 
-	room_pet_den = client.get_room(pet_den)
+	#room_pet_den = client.get_room(pet_den)
+	room_priv_fh = client.get_room(priv_fh)
 	
 	rooms = [
 		room_pet_den,
+		room_priv_fh,
 	]
 
 	for room in rooms:
@@ -118,8 +120,6 @@ def on_message(message, client):
 
 	if "🐟" in message.content and "d the Wizard" in message.content and "quivers" in message.content and int(message.user.id) == 375672:
 		message.room.send_message("/fish again")
-	if "📧" in message.content and "d the Wizard" in message.content and "inbox pings" in message.content and int(message.user.id) == 375672:
-		message.room.send_message("/phish again")
 
 def setup_logging():
 	logging.basicConfig(level=logging.CRITICAL)
