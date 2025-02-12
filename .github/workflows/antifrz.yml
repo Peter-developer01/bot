@@ -1,4 +1,4 @@
-name: Run bot
+name: Antifreeze
 
 on:
   workflow_dispatch:
