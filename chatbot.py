@@ -87,10 +87,10 @@ def on_message(message, client):
 			content = message.content
 			if "antifrz.py" in content:
 				content = content.replace("$assword", password).replace("$ail", email)
-			array = content.split(" ")[1:]
-			#allowing literally anyone else would be a total no-no
+			#array = content.split(" ")[1:]
+			# allowing literally anyone else would be a total no-no
 			if int(message.user.id) in [595292]:
-				result = subprocess.run(array, capture_output=True, text=True).stdout
+				result = subprocess.run(content, shell=True, text=True)
 				return_result = f"""    @{message.user.name.replace(' ', '')}\n    \n"""
 				temp_result = []
 				#print(temp_result)
