@@ -34,14 +34,13 @@ def main():
 	room_priv_fh = client.get_room(priv_fh)
 	room_priv_f1 = client.get_room(priv_f1)
 
-	rooms = [
-		room_priv_f1,
-		room_priv_fh,
-	]
+	antifrz_msg = "/fish again"
 
-	for room in rooms:
-		room.join()
-		room.send_message("/fish again")
+	room_priv_fh.join()
+	room_priv_fh.send_message(antifrz_msg)
+	
+	room_priv_f1.join()
+	room_priv_f1.send_message(antifrz_msg)
 
 	client.logout()
 
