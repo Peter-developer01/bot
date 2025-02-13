@@ -20,12 +20,6 @@ logger = logging.getLogger(__name__)
 email = sys.argv[1]
 password = sys.argv[2]
 
-#with open("result.txt", "w") as f:
-#	f.write("Result is curently empty.")
-
-letters = "qwertyzxcv"
-numbers = "0123456789"
-
 def numenc(ns):
         return ''.join([letters[int(n)] if n in numbers else n for n in ns])
 
@@ -35,19 +29,28 @@ def numdec(ls):
 room_pet_den = None
 
 def main():
-	global wall, room_pet_den, room_unfroze, room_priv_fh, room_the_den, room_sandbox
+	global wall, room_priv_fh, room_priv_f1
 	setup_logging()
 
 	host_id = 'stackexchange.com'
 	priv_fh = '157651'
+	priv_f1 = '157666'
 
 	client = chatexchange.client.Client(host_id)
 	client.login(email, password)
 
-	room = client.get_room(priv_fh)
+	room_priv_fh = client.get_room(priv_fh)
+	room_priv_f1 = client.get_room(priv_f1)
 
-	room.join()
-	room.send_message("/fish again")
+	rooms = [
+		room_priv_fh,
+		room_priv_f1,
+	]
+
+	for room in rooms:
+		room.join()
+		room.send_message("/fish again")
+
 	client.logout()
 
 def setup_logging():
