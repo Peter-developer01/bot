@@ -20,16 +20,8 @@ logger = logging.getLogger(__name__)
 email = sys.argv[1]
 password = sys.argv[2]
 
-def numenc(ns):
-        return ''.join([letters[int(n)] if n in numbers else n for n in ns])
-
-def numdec(ls):
-        return ''.join([str(letters.index(l.lower())) if l.lower() in letters else l for l in ls])
-
-room_pet_den = None
-
 def main():
-	global wall, room_priv_fh, room_priv_f1
+	global room_priv_fh, room_priv_f1
 	setup_logging()
 
 	host_id = 'stackexchange.com'
@@ -43,8 +35,8 @@ def main():
 	room_priv_f1 = client.get_room(priv_f1)
 
 	rooms = [
-		room_priv_fh,
 		room_priv_f1,
+		room_priv_fh,
 	]
 
 	for room in rooms:
@@ -72,4 +64,3 @@ def setup_logging():
 
 if __name__ == '__main__':
 	main()
-	#room.send_message("Bot stopped.")
