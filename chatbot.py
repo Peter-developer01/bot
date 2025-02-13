@@ -42,16 +42,19 @@ def main():
 	host_id = 'stackexchange.com'
 	pet_den = '146039'
 	priv_fh = '157651'
+	priv_f1 = '157666'
 
 	client = chatexchange.client.Client(host_id)
 	client.login(email, password)
 
 	room_pet_den = client.get_room(pet_den)
 	room_priv_fh = client.get_room(priv_fh)
+	room_priv_f1 = client.get_room(priv_f1)
 	
 	rooms = [
 		room_pet_den,
 		room_priv_fh,
+		room_priv_f1,
 	]
 
 	for room in rooms:
@@ -69,7 +72,7 @@ def main():
 	while True:
 		print("running, " + str(count))
 		count += 1
-		time.sleep(60)
+		time.sleep(120)
 
 	client.logout()
 
